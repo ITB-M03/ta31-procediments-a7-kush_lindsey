@@ -1,35 +1,40 @@
 package controllers.actividad_1
 
+import controllers.actividad_3.mostrarResultado
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 fun main(){
-    val scan= inicioscan().useLocale(Locale.UK)
-    println("Dime el precio de la compra para que te calcule el iva")
-    val numero = scan.nextFloat()
-    println("Dime la data de tu compra")
-    println("Dime el dia de tu compra")
-    val dia = scan.nextInt()
-    println("Dime el mes de tu compra")
-    val mes = scan.nextInt()
-    println("Dime el año de tu compra")
-    val anyo = scan.nextInt()
-    scan.nextLine()
-    println("Dime el tipo de IVA que quieres aplicar: General, Reduida, Superrreduit, Exent")
-    val tipoIva = scan.nextLine().lowercase()
-
-    calcularIva(numero, dia, mes, anyo, tipoIva)
+    val scan = inicioscan()
+    pedirFecha(scan)
+    pedirTipoIva(scan)
+    pedirPrecio(scan)
     finalscan(scan)
 }
 
 fun inicioscan(): Scanner {
     return Scanner(System.`in`).useLocale(Locale.UK)
 }
-fun datasCompra (dia: Int, mes: Int, anyo: Int): String{
-    val data = Calendar.getInstance()
-    val nDia = data.get(Calendar.DAY_OF_MONTH)
-    val nMEs = data.get(Calendar.MONTH)
-    val nAnyo = data.get(Calendar.YEAR)
-    return "$nDia/$nMEs/$nAnyo"
+
+fun pedirPrecio (scan: Scanner):Float{
+    val scan = inicioscan().useLocale(Locale.UK)
+    println("Dime el precio de la compra para que te calcule el iva")
+    val precio = scan.nextFloat()
+    return precio
 }
+fun pedirFecha (scan:Scanner):LocalDate{
+        println("Pon la fecha de la compra en formato DD-MM-YYYY:")
+        val dateString = scan.nextLine()
+        val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+        val localDate = LocalDate.parse(dateString, formatter)
+    return localDate
+}
+fun pedirTipoIva (scan: Scanner):String{
+    println("Dime el tipo de IVA que quieres aplicar: General, Reduida, Superrreduit, Exent")
+    val tipoIva = scan.nextLine().lowercase()
+    return tipoIva
+}
+
 fun calcularIva (numero:Float, dia:Int, mes:Int, anyo:Int, tipoIva:String){
     val ivaGeneral :Float
     val ivaReduido : Float
