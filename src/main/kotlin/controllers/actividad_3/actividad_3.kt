@@ -5,9 +5,7 @@ import java.util.*
 
 fun main(){
     val scan = inicioscan()
-    val contrasenya = pedirContrasenya(scan)
-        validarSuperUsuari(contrasenya)
-    mostrarResultado(validarSuperUsuari(contrasenya),contrasenya)
+    validar(scan)
     finalscan(scan)
 }
 fun inicioscan(): Scanner {
@@ -17,7 +15,6 @@ fun pedirContrasenya(scan: Scanner):String{
     val scan = Scanner(System.`in`)
     println("Ingresa tu contraseña:")
     var pedirContrasenya = scan.nextLine()
-    var contrasenyaRealNoFake : String = "holaSantiYDani"
     return pedirContrasenya
 }
 
@@ -28,15 +25,25 @@ fun validarSuperUsuari(pedirContrasenya:String):Boolean{
     }
     return ciertoOErroneo
 }
-fun mostrarResultado (validarSuperUsuari:Boolean, contrasenya:String):String{
-        if (validarSuperUsuari(contrasenya) == false){
+fun mostrarResultado (resultado:Boolean){
+
+        if (resultado == false){
             println("Error")
         }
-        if (validarSuperUsuari(contrasenya)==true){
+        if (resultado==true){
             println("Encertado")
-            System.exit(0)
         }
-    return contrasenya
+}
+fun validar (scan: Scanner){
+    var errores = 0
+    do {
+       val contrasenya= pedirContrasenya(scan)
+        val resultado = validarSuperUsuari(contrasenya)
+        mostrarResultado(resultado)
+        if (resultado==false){
+            errores++
+        }
+    }while (!resultado && errores < 3)
 }
 
 fun finalscan(scan: Scanner) {
