@@ -15,7 +15,7 @@ fun inicioscan(): Scanner {
 fun pedirContrasenya(scan: Scanner):String{
     val scan = Scanner(System.`in`)
     println("Ingresa tu contraseña:")
-    var pedirContrasenya = scan.nextLine()
+    val pedirContrasenya = scan.nextLine()
     return pedirContrasenya
 }
 
