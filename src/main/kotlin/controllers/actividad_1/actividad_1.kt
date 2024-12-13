@@ -90,26 +90,27 @@ fun pedirTipoIva (scan: Scanner):String{
     return tipoIva
 }
 
-fun calcularIva (preu:Float, tipus:String, data: LocalDate, oriol:Array<DatosIva>, dataFi: LocalDate, dataInici: LocalDate) {
-    val resultado: Float
-    val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-    //bucle recorriendo el array
-        //if data está entre dataInici y dataFi
-    //fiBucle
-    var ivaAplicable = 0f
-    for (i in oriol.indices){
-        if (data>oriol[i].dataInici && data<oriol[i].dataFi ){
-            if (tipus=="general"){
-                ivaAplicable = oriol[i].ivaGeneral
-            }
-            else if(){
+fun calcularIva (preu:Float, tipus:String, data: LocalDate, oriol:Array<DatosIva>) {
 
+    var ivaAplicable = 0f
+    for (i in oriol.indices) {
+        if (data > oriol[i].dataInici && data < oriol[i].dataFi) {
+            if (tipus == "general") {
+                ivaAplicable = oriol[i].ivaGeneral
+            } else if (tipus == "reduida") {
+                ivaAplicable = oriol[i].ivaReduido
+            } else if (tipus == "superreduida") {
+                ivaAplicable = oriol[i].ivaSuperreduido
+            } else if (tipus == "exento") {
+                ivaAplicable = oriol[i].ivaExento
+            } else {
+                println("ERROR")
             }
         }
     }
-    println(preu*ivaAplicable)
+    println(preu * ivaAplicable)
+}
     fun finalscan(scan: Scanner) {
         scan.close()
-    }
 }
 //no se pueden hacer tests porque mi funcion del calculo del iva no devuelve naday hay ciertos parametros del calculo que no se pueden modificar
