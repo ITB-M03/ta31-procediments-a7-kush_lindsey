@@ -5,7 +5,9 @@ import java.util.*
 fun main(){
     var scan = abrirScanner()
     var mensaje = pedirmensaje(scan)
-    espacios(mensaje)
+    var resta = espacios(mensaje)
+    mostrarResulado(resta, mensaje)
+
     cerrarScanner(scan)
 }
 fun pedirmensaje(scan: Scanner):String{
@@ -14,11 +16,16 @@ fun pedirmensaje(scan: Scanner):String{
     mensaje = scan.nextLine()
     return mensaje
 }
-fun espacios(mensaje:String){
+fun espacios(mensaje:String):Int{
+    var resta : Int
+
     var longMensaje : Int = mensaje.length
     var caracteresPantalla : Int = 80
 
-    var resta = caracteresPantalla - longMensaje
+    resta = caracteresPantalla - longMensaje
+   return resta
+}
+fun mostrarResulado(resta:Int,mensaje: String){
     for (i in 0 .. (resta/2)){
         print(" ")
     }
@@ -26,7 +33,5 @@ fun espacios(mensaje:String){
     for (i in 0 .. resta/2){
         print(" ")
     }
-
-
 }
 
