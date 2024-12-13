@@ -31,7 +31,7 @@ fun mostrarResultado (resultado:Boolean){
             println("Error")
         }
         if (resultado==true){
-            println("Encertado")
+            println("Acertado")
         }
 }
 fun validar (scan: Scanner){
