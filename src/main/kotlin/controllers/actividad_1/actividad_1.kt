@@ -108,7 +108,7 @@ fun calcularIva (preu:Float, tipus:String, data: LocalDate, oriol:Array<DatosIva
             }
         }
     }
-    println(preu * ivaAplicable)
+    println(preu + (preu * ivaAplicable))
 }
     fun finalscan(scan: Scanner) {
         scan.close()
