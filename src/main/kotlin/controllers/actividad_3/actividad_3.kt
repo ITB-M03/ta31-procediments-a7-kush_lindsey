@@ -2,6 +2,7 @@ package controllers.actividad_3
 
 
 import java.util.*
+const val password = "holaSantiYDani"
 
 fun main(){
     val scan = inicioscan()
@@ -14,13 +15,13 @@ fun inicioscan(): Scanner {
 fun pedirContrasenya(scan: Scanner):String{
     val scan = Scanner(System.`in`)
     println("Ingresa tu contraseña:")
-    var pedirContrasenya = scan.nextLine()
+    val pedirContrasenya = scan.nextLine()
     return pedirContrasenya
 }
 
 fun validarSuperUsuari(pedirContrasenya:String):Boolean{
     var ciertoOErroneo = false
-    if (pedirContrasenya=="holaSantiYDani"){
+    if (pedirContrasenya== password){
         ciertoOErroneo = true
     }
     return ciertoOErroneo
@@ -31,7 +32,7 @@ fun mostrarResultado (resultado:Boolean){
             println("Error")
         }
         if (resultado==true){
-            println("Encertado")
+            println("Acertado")
         }
 }
 fun validar (scan: Scanner){
