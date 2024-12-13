@@ -25,10 +25,10 @@ fun pedirPrecio (scan: Scanner):Float{
     return precio
 }
 fun pedirFecha (scan:Scanner):LocalDate{
-        println("Pon la fecha de la compra en formato DD-MM-YYYY:")
-        val dateString = scan.nextLine()
-        val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-        val localDate = LocalDate.parse(dateString, formatter)
+    println("Pon la fecha de la compra en formato DD-MM-YYYY:")
+    val dateString = scan.nextLine()
+    val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+    val localDate = LocalDate.parse(dateString, formatter)
     return localDate
 }
 fun pedirTipoIva (scan: Scanner):String{
@@ -64,7 +64,10 @@ fun calcularIva (preu:Float, tipus:String, data: LocalDate) {
         } else if (data in LocalDate.parse("01-01-2010", formatter)..LocalDate.parse("15-07-2012", formatter)) {
             resultado = preu * 0.08f
             println(resultado + preu)
-        } else if (data in LocalDate.parse("15-07-2012", formatter)..LocalDate.parse("01-01-3000", formatter))
+        } else if (data in LocalDate.parse("15-07-2012", formatter)..LocalDate.parse("01-01-3000", formatter)){
+            resultado=preu*0.10f
+            println(resultado+preu)
+        }
         else {
             println("ERROR")
         }
