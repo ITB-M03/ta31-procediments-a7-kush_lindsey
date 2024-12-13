@@ -22,7 +22,7 @@ dependencies {
 }
 
 tasks.dokkaHtml.configure {
-    outputDirectory.set(buildDir.resolve("dokka"))
+    outputDirectory.set(project.layout.buildDirectory.dir("dokka"))
 }
 
 
