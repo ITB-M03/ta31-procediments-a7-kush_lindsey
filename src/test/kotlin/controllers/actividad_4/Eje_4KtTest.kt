@@ -8,8 +8,8 @@ class Eje_4KtTest {
 
     @Test
     fun espaciosCorrecto() {
-        var mensaje = "Hola"
-        var esperado = " ".repeat(80 -((mensaje.length)/2)) + mensaje + " ".repeat(80 -((mensaje.length)/2))
+        val mensaje = "Hola"
+        val esperado = 80 - mensaje.length
         assertEquals(esperado, espacios(mensaje))
     }
 
