@@ -108,9 +108,9 @@ fun calcularIva (preu:Float, tipus:String, data: LocalDate, oriol:Array<DatosIva
             }
         }
     }
-    println(preu * ivaAplicable)
+    println(preu + (preu * ivaAplicable))
 }
     fun finalscan(scan: Scanner) {
         scan.close()
 }
-//no se pueden hacer tests porque mi funcion del calculo del iva no devuelve naday hay ciertos parametros del calculo que no se pueden modificar
+//no se pueden hacer tests porque mi funcion del calculo del iva no devuelve nada y hay ciertos parametros del calculo que no se pueden modificar
