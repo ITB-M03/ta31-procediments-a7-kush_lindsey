@@ -67,7 +67,7 @@ fun gestionMenu(pos: Int, scan: Scanner, pila: Array<Int>, menu: Int){
         } else if (menu == 3) {
             opcion3(pos, pila)
         }
-        menu = menu(scan)
+
     }
 }
 fun opcion1(scan: Scanner, pos: Int, pila: Array<Int>):Int{
@@ -97,7 +97,7 @@ fun opcion2(pos: Int, pila: Array<Int>):Int{
     if (pos > 9) pos = 9
     //Si pos es mayor o igual que 0 significa que hay por lo menos 1 elemento que se puede borrar
     if (pos >= 0) {
-        Pila.
+
     }
     if (eliminarNumero(pila, pos) == false) {
         println("La pila esta vacia, no puede eliminar ningun numero.")
@@ -121,8 +121,8 @@ fun opcion3(pos: Int, pila: Array<Int>):Int{
  */
 fun crearArray(): Array<Int> {
     var tamañoArray = 10
-    var pila:Pila= Array<Int>(tamañoArray) { 0 }
-    return array
+    var pila= Array<Int>(tamañoArray) { 0 }
+    return pila
 }
 
 /**
